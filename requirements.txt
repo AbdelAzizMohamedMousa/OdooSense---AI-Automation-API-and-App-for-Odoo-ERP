@@ -1,0 +1,6 @@
+odoo
+requests
+Flask
+Flask-SocketIO
+tensorflow
+transformers
