@@ -1,0 +1,58 @@
+<template id="odoosense_chatbot_conversation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>OdooSense Chatbot</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="conversation-history">
+                    <h3>Conversation History</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media">
+                                <img class="mr-3" src="/odoosense_chatbot/static/src/img/chatbot-avatar.png" alt="Chatbot Avatar">
+                                <div class="media-body">
+                                    {{ chatbot.conversation_history }}
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-danger" t-on-click="chatbot.clear_conversation_history()">Clear Conversation History</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="chatbot-response">
+                    <h3>Chatbot Response</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media">
+                                <img class="mr-3" src="/odoosense_chatbot/static/src/img/chatbot-avatar.png" alt="Chatbot Avatar">
+                                <div class="media-body">
+                                    {{ chatbot.chatbot_response }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-query">
+                    <h3>Ask a Question</h3>
+                    <form class="form-inline">
+                        <div class="form-group mb-2">
+                            <label for="query-input" class="sr-only">Question</label>
+                            <input type="text" class="form-control" id="query-input" placeholder="Enter your question">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2" t-on-click="chatbot.submit_query()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

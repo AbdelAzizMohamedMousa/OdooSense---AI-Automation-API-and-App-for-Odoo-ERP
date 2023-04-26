@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <!-- Define the form view for the OdooSense Conversation model -->
+        <record model="ir.ui.view" id="view_odoosense_conversation_form">
+            <field name="name">OdooSense Conversation Form</field>
+            <field name="model">odoosense.conversation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="history"/>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OdooSense AI Module</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/socket.io.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+    <h1>OdooSense AI Module</h1>
+    <form>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="generate-suggestion-btn">Generate suggestion</button>
+        <div class="form-group">
+            <label for="suggestion">Suggestion:</label>
+            <textarea class="form-control" id="suggestion" name="suggestion" rows="3" readonly></textarea>
+        </div>
+        <hr>
+        <h2>Chat with OdooSense</h2>
+        <div class="chat-container">
+            <div class="chat-history">
+                <div class="chat-history">Welcome to OdooSense! How can I assist you today?</div>
+            </div>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <input type="text" class="form-control" id="message" name="message">
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </form>
+</body>
+</html>

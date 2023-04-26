@@ -1,0 +1,5 @@
+<odoo>
+    <data>
+        <menuitem id="menu_odoosense_chatbot" name="OdooSense Chatbot" action="action_odoosense_chatbot"/>
+    </data>
+</odoo>

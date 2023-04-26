@@ -1,0 +1,28 @@
+<odoo>
+    <template id="assets_backend" name="odoosense_chatbot assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/odoosense_chatbot/static/src/js/chatbot.js"></script>
+        </xpath>
+    </template>
+
+    <template id="chatbot_template" name="Chatbot Template">
+        <div class="o_chatbot">
+            <div class="media">
+                <div class="media-body">
+                    <div class="text-center">
+                        <img src="/odoosense_chatbot/static/src/img/logo.png" class="img-circle chatbot-logo" alt="Chatbot logo">
+                    </div>
+                    <div class="conversation-history"></div>
+                    <div class="input-group">
+                        <input type="text" class="form-control chatbot-input" placeholder="Ask me something...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default chatbot-send-button" type="button">Send</button>
+                            <button class="btn btn-default chatbot-image-button" type="button">Image</button>
+                            <button class="btn btn-default chatbot-location-button" type="button">Location</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

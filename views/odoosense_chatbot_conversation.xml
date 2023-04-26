@@ -1,0 +1,72 @@
+<template id="odoosense_chatbot_conversation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>OdooSense Chatbot</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="conversation-history">
+                    <h3>Conversation History</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            {{ chatbot.conversation_history }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="chatbot-response">
+                    <h3>Chatbot Response</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            {{ chatbot.chatbot_response }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="message-form">
+                    <h3>Send a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <input type="text" class="form-control" id="message" name="message">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="send-message">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#send-message').on('click', function() {
+                var message = $('#message').val();
+                $.ajax({
+                    url: '/odoosense_chatbot/send_message',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        message: message,
+                    },
+                    success: function(result) {
+                        if (result.success) {
+                            $('.chatbot-response .card-body').append('<p>Chatbot: ' + result.chatbot_response + '</p>');
+                        } else {
+                            alert(result.error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            });
+        });
+    </script>
+</template>

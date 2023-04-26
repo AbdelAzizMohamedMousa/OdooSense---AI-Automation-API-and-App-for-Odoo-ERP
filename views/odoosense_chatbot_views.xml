@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="view_odoosense_chatbot_conversation" model="ir.ui.view">
+            <field name="name">odoosense.chatbot.conversation</field>
+            <field name="model">odoosense.chatbot</field>
+            <field name="arch" type="xml">
+                <form string="OdooSense Chatbot Conversation">
+                    <sheet>
+                        <group>
+                            <field name="conversation_history" readonly="1"/>
+                            <field name="chatbot_response" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="state" widget="statusbar" statusbar_colors='{"new":"blue","training":"orange","trained":"green","running":"purple"}'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

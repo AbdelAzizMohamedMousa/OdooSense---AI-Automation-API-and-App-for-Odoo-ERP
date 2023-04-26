@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <!-- Define the action for the OdooSense settings -->
+        <record model="ir.actions.act_window" id="action_odoosense_settings">
+            <field name="name">OdooSense Settings</field>
+            <field name="res_model">odoosense.settings</field>
+            <field name="view_mode">form</field>
+            <field name="view_type">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <!-- Define the menu item for the OdooSense settings -->
+        <record model="ir.ui.menu" id="menu_odoosense_settings">
+            <field name="name">OdooSense Settings</field>
+            <field name="action" ref="action_odoosense_settings"/>
+            <field name="parent_id" ref="base.menu_configuration"/>
+            <field name="sequence" eval="20"/>
+        </record>
+    </data>
+</odoo>

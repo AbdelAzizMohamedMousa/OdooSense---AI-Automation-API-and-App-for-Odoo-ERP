@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- OdooSense menu item -->
+        <menuitem id="menu_odoosense_root"
+                  name="OdooSense"
+                  sequence="1"
+                  web_icon="odoosense,static/src/img/odoosense.png"
+                  />
+
+        <!-- OdooSense chatbots menu item -->
+        <menuitem id="menu_odoosense_chatbots"
+                  name="Chatbots"
+                  parent="menu_odoosense_root"
+                  sequence="1"
+                  action="odoosense.action_odoosense_chatbot"
+                  />
+
+        <!-- OdooSense chatbot form view -->
+        <record id="view_odoosense_chatbot_form" model="ir.ui.view">
+            <field name="name">odoosense.chatbot.form</field>
+            <field name="model">odoosense.chatbot</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="train_model" string="Train Model" type="object" class="btn-primary"/>
+                        <button name="clear_model" string="Clear Model" type="object" class="btn-danger"/>
+                        <button name="send_message" string="Send" type="object" class="btn-primary" attrs="{'invisible': [('state', '!=', 'running')]}"/>
+                        <button name="stop_conversation" string="Stop" type="object" class="btn-danger" attrs="{'invisible': [('state', '!=', 'running')]}"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="suggestion"/>
+                            <field name="api_key"/>
+                        </group>
+                        <group>
+                            <field name="conversation_history" widget="html"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="chatbot_response" widget="html"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- OdooSense chatbot list view -->
+        <record id="view_odoosense_chatbot_tree" model="ir.ui.view">
+            <field name="name">odoosense.chatbot.tree</field>
+            <field name="model">odoosense.chatbot</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- OdooSense chatbot search view -->
+        <record id="view_odoosense_chatbot_search" model="ir.ui.view">
+            <field name="name">odoosense.chatbot.search</field>
+            <field name="model">odoosense.chatbot</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- OdooSense chatbot action -->
+        <record id="action_odoosense_chatbot" model="ir.actions.act_window">
+            <field name="name">Chatbots</field>
+            <field name="res_model">odoosense.chatbot</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_odoosense_chatbot_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click the Create button to add a new chatbot.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>
